@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ laptop.name }}</h1>
+<div>
+    <p>CPU: {{ laptop.cpu }}</p>
+    <p>Cooler: {{ laptop.cooler }}</p>
+    <p>RAM: {{ laptop.ram }}</p>
+    <p>SSD: {{ laptop.ssd }}</p>
+    <p>GPU: {{ laptop.gpu }}</p>
+    <p>Display: {{ laptop.display }}</p>
+    <p>Price: UZS{{ laptop.price }}</p>
+    <p>Soni: {{ laptop.quantity }}</p>
+    <img src="{{ laptop.photo.url }}" width="300">
+
+    <div>
+        <a href="{% url 'cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+    </div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+

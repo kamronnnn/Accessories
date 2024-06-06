@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+            class="bg-secondary pr-3">Categories</span></h2>
+    <div class="row px-xl-5 pb-3">
+        {% for category in categories %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <a class="text-decoration-none" href="">
+                <div class="cat-item img-zoom d-flex align-items-center mb-4">
+                    <div class="overflow-hidden" style="width: 150px; height: 85px;">
+                        <a href="{% url 'filter_by_category' category.id %}">
+                            <img class="img-fluid" src="{{ category.photo.url }}" alt="{{ category.name }}">
+                        </a>
+                    </div>
+                    <div class="flex-fill pl-3">
+                        <h6>{{ category.name }}</h6>
+                        <small class="text-body">{{ category.name }}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Categories End -->
+
+
+<!-- PC -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">PC Mahsulotlar</span>
+    </h2>
+    <div class="container">
+        <div class="row">
+            {% for gamingbuild in gamingbuilds|slice:"3" %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="{% url 'gaming_build_detail' gamingbuild.id %}">
+                        <img class="card-img-top" src="{{ gamingbuild.photo.url }}" alt="{{ gamingbuild.name }}">
+                    </a>
+                    <h6>{{ gamingbuild.category.name }}</h6>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ gamingbuild.name }}</h4>
+                        <h5>UZS: {{ gamingbuild.price }}</h5>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+<!-- PC End -->
+
+<!-- LapTop Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Noutbuk Mahsulotlar</span>
+    </h2>
+    <div class="row px-xl-5">
+        {% for laptop in laptops|slice:"3" %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <a href="{% url 'laptop_detail' laptop.id %}">
+                        <img class="img-fluid w-100" src="{{ laptop.photo.url }}" alt="{{ laptop.name }}">
+                    </a>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{ laptop.name }}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>UZS: {{ laptop.price }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- LapTop End -->
+
+<!-- Armchair Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Kreslo Mahsulotlar</span>
+    </h2>
+    <div class="row px-xl-5">
+        {% for armchair in armchairs|slice:"3" %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <a href="{% url 'armchair_detail' armchair.id %}">
+                        <img class="img-fluid w-100" src="{{ armchair.photo.url }}" alt="{{ armchair.name }}">
+                    </a>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{ armchair.name }}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>UZS: {{ armchair.price }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Armchair End -->
+
+<!-- Mice Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sichqoncha Mahsulotlar</span>
+    </h2>
+    <div class="row px-xl-5">
+        {% for mice in mices|slice:"3" %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <a href="{% url 'mice_detail' mice.id %}">
+                        <img class="img-fluid w-100" src="{{ mice.photo.url }}" alt="{{ mice.name }}">
+                    </a>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{ mice.name }}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>UZS: {{ mice.price }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Mice End -->
+
+<!-- Keyboard Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Klaviatura Mahsulotlar</span>
+    </h2>
+    <div class="row px-xl-5">
+        {% for keyboard in keyboards|slice:"3" %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <a href="{% url 'keyboard_detail' keyboard.id %}">
+                        <img class="img-fluid w-100" src="{{ keyboard.photo.url }}" alt="{{ keyboard.name }}">
+                    </a>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{ keyboard.name }}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>UZS: {{ keyboard.price }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Keyboard End -->
+
+<!-- Monitor Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Monitor Mahsulotlar</span>
+    </h2>
+    <div class="row px-xl-5">
+        {% for monitor in monitors|slice:"3" %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <a href="{% url 'monitor_detail' monitor.id %}">
+                        <img class="img-fluid w-100" src="{{ monitor.photo.url }}" alt="{{ monitor.name }}">
+                    </a>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{ monitor.name }}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>UZS: {{ monitor.price }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Monitor End -->
+
+
+{% endblock main %}

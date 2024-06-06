@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ armchair.name }}</h1>
+<div>
+    <p>Nomi: {{ armchair.name }}</p>
+    <p>Chairtype: {{ armchair.chairtype }}</p>
+    <p>Material: {{ armchair.upholsterymaterial }}</p>
+    <p>Rang: {{ armchair.upholsterycolor }}</p>
+    <p>Reclining: {{ armchair.reclining }}</p>
+    <p>Permissibleload: {{ armchair.permissibleload }}</p>
+    <p>Price: UZS{{ armchair.price }}</p>
+    <p>Soni: {{ armchair.quantity }}</p>
+    <img src="{{ armchair.photo.url }}" width="300">
+
+    <div>
+        <a href="{% url 'cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+    </div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+

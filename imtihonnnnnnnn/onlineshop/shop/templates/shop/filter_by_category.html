@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>{{ category.name }}</h1>
+
+<ul>
+    {% for gamingbuild in gamingbuilds %}
+    <li>
+        <h1>Nomi: {{ gamingbuild.name }}</h1>
+        <p>Narx: {{ gamingbuild.price }}</p>
+        <img src="{{ gamingbuild.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for laptop in laptops %}
+    <li>
+        <h1>{{ laptop.name }}</h1>
+        <p>{{ laptop.price }}</p>
+        <img src="{{ laptop.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for keyboard in keyboards %}
+    <li>
+        <h1>{{ keyboard.name }}</h1>
+        <p>{{ keyboard.price }}</p>
+        <img src="{{ keyboard.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for monitor in monitors %}
+    <li>
+        <h1>{{ monitor.name }}</h1>
+        <p>{{ monitor.price }}</p>
+        <img src="{{ monitor.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for armchair in armchairs %}
+    <li>
+        <h1>{{ armchair.name }}</h1>
+        <p>{{ armchair.price }}</p>
+        <img src="{{ armchair.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for mice in mices %}
+    <li>
+        <h1>{{ mice.name }}</h1>
+        <p>{{ mice.price }}</p>
+        <img src="{{ mice.photo.url }}" width="200">
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ keyboard.name }}</h1>
+<div>
+    <p>Nomi: {{ keyboard.name }}</p>
+    <p>KeyboardType: {{ keyboard.keyboardtype }}</p>
+    <p>Swithtype: {{ keyboard.switchtype }}</p>
+    <p>Interfeys: {{ keyboard.interface }}</p>
+    <p>backlight: {{ keyboard.backlight }}</p>
+    <p>Tugmalat Soni: {{ keyboard.numberofkeys }}</p>
+    <p>Price: UZS{{ keyboard.price }}</p>
+    <p>Soni: {{ keyboard.quantity }}</p>
+    <img src="{{ keyboard.photo.url }}" width="300">
+
+    <div>
+        <a href="{% url 'cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+    </div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+

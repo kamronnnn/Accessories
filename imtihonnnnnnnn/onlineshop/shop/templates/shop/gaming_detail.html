@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ gaming_build.name }}</h1>
+<div>
+    <p>CPU: {{ gaming_build.cpu }}</p>
+    <p>Cooler: {{ gaming_build.cooler }}</p>
+    <p>RAM: {{ gaming_build.ram }}</p>
+    <p>SSD: {{ gaming_build.ssd }}</p>
+    <p>HDD: {{ gaming_build.hdd }}</p>
+    <p>GPU: {{ gaming_build.gpu }}</p>
+    <p>PSU: {{ gaming_build.psu }}</p>
+    <p>Case: {{ gaming_build.case }}</p>
+    <p>Price: UZS{{ gaming_build.price }}</p>
+    <p>Soni: {{ gaming_build.quantity }}</p>
+    <img src="{{ gaming_build.photo.url }}" width="300">
+
+    <div>
+        <a href="{% url 'to_cart' gaming_build.id 'add' %}" class="btn btn-primary mt-3">Savatchaga Qo'shish</a>
+    </div>
+    <hr>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+

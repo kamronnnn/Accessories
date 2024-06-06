@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ monitor.name }}</h1>
+<div>
+    <p>Nomi: {{ monitor.name }}</p>
+    <p>Diagonal: {{ monitor.diagonal }}</p>
+    <p>Screentype: {{ monitor.screentype }}</p>
+    <p>Matrixtype: {{ monitor.matrixtype }}</p>
+    <p>Permission: {{ monitor.permission }}</p>
+    <p>Framerate: {{ monitor.display }}</p>
+    <p>Interface: {{ monitor.interface }}</p>
+    <p>Price: UZS{{ monitor.price }}</p>
+    <p>Soni: {{ monitor.quantity }}</p>
+    <img src="{{ monitor.photo.url }}" width="200">
+
+    <div>
+        <a href="" class="btn btn-primary mt-3">Buy Now</a>
+    </div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+

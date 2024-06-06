@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ mice.name }}</h1>
+<div>
+    <p>Nomi: {{ mice.name }}</p>
+    <p>SensorType: {{ mice.sensortype }}</p>
+    <p>DPI/CPI: {{ mice.maximumdpicpiresolution }}</p>
+    <p>Tugmalar: {{ mice.numberofbuttons }}</p>
+    <p>Pullingrate: {{ mice.pullingrate }}</p>
+    <p>Operatingmode: {{ mice.operatingmode }}</p>
+    <p>Price: UZS{{ mice.price }}</p>
+    <p>Soni: {{ mice.quantity }}</p>
+    <img src="{{ mice.photo.url }}" width="300">
+
+    <div>
+        <a href="{% url 'cart' %}" class="btn btn-primary mt-3">Buy Now</a>
+    </div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Saqlash">
+    </form>
+</div>
+
+{% endblock main %}
+
+
